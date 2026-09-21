@@ -28,7 +28,7 @@
       justify-content: flex-end;
     }
 
-    /* Mensaje romántico en el fondo */
+    
     .bg-message {
       position: absolute;
       top: 35px;
@@ -59,7 +59,7 @@
       }
     }
 
-    /* Partículas de polen */
+    
     canvas#particles {
       position: absolute;
       top: 0;
@@ -70,7 +70,7 @@
       z-index: 1;
     }
 
-    /* Luces ambientales */
+  
     .glow-bg {
       position: absolute;
       top: 40%;
@@ -84,7 +84,7 @@
       z-index: 0;
     }
 
-    /* Ilustración del cerdito de fondo */
+   
     .pig-bg {
       position: absolute;
       bottom: 22px;
@@ -233,7 +233,7 @@
       filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
     }
 
-    /* Botón central inferior */
+    
     .controls {
       position: fixed;
       bottom: 30px;
@@ -269,7 +269,7 @@
       box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
     }
 
-    /* Ventana modal de la carta */
+   
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -381,7 +381,7 @@
       white-space: pre-wrap;
     }
 
-    /* Efecto al tocar la pantalla */
+    
     .touch-heart {
       position: fixed;
       pointer-events: none;
@@ -404,25 +404,25 @@
 </head>
 <body>
 
-  <!-- Mensaje de fondo -->
+  
   <div class="bg-message">¡Te quiero mil millones! 💛</div>
 
   <canvas id="particles"></canvas>
   <div class="glow-bg"></div>
 
-  <!-- Cerdito animado de fondo -->
+ 
   <div class="pig-bg">
     <svg viewBox="0 0 120 120" width="100%" height="100%">
-      <!-- Orejas -->
+      
       <path class="pig-ear-left" d="M30,45 C20,25 35,15 45,30 Z" fill="#ffb6c1" stroke="#f08080" stroke-width="2"/>
       <path d="M32,40 C26,28 35,22 41,31 Z" fill="#ff8da1"/>
       <path class="pig-ear-right" d="M90,45 C100,25 85,15 75,30 Z" fill="#ffb6c1" stroke="#f08080" stroke-width="2"/>
       <path d="M88,40 C94,28 85,22 79,31 Z" fill="#ff8da1"/>
 
-      <!-- Cabeza / Cuerpo -->
+      
       <circle cx="60" cy="65" r="42" fill="#ffccd5" stroke="#f08080" stroke-width="2.5"/>
 
-      <!-- Florecita amarilla en la cabeza -->
+      
       <circle cx="78" cy="34" r="5" fill="#ffe066"/>
       <circle cx="85" cy="36" r="5" fill="#ffe066"/>
       <circle cx="82" cy="43" r="5" fill="#ffe066"/>
@@ -430,28 +430,28 @@
       <circle cx="72" cy="36" r="5" fill="#ffe066"/>
       <circle cx="78" cy="38" r="3.5" fill="#f59f00"/>
 
-      <!-- Ojos tiernos con brillo -->
+     
       <ellipse cx="45" cy="60" rx="4.5" ry="5.5" fill="#2b2b2b"/>
       <circle cx="43" cy="58" r="1.5" fill="#ffffff"/>
       <ellipse cx="75" cy="60" rx="4.5" ry="5.5" fill="#2b2b2b"/>
       <circle cx="73" cy="58" r="1.5" fill="#ffffff"/>
 
-      <!-- Sonrojo en las mejillas -->
+      
       <ellipse cx="38" cy="72" rx="6" ry="3.5" fill="#ff99aa" opacity="0.6"/>
       <ellipse cx="82" cy="72" rx="6" ry="3.5" fill="#ff99aa" opacity="0.6"/>
 
-      <!-- Trompita -->
+     
       <ellipse cx="60" cy="76" rx="16" ry="11" fill="#ff99aa" stroke="#f08080" stroke-width="1.8"/>
       <ellipse cx="55" cy="76" rx="2.5" ry="4" fill="#d85a6a"/>
       <ellipse cx="65" cy="76" rx="2.5" ry="4" fill="#d85a6a"/>
 
-      <!-- Patitas asomándose -->
+      
       <ellipse cx="44" cy="104" rx="9" ry="6" fill="#ffccd5" stroke="#f08080" stroke-width="2"/>
       <ellipse cx="76" cy="104" rx="9" ry="6" fill="#ffccd5" stroke="#f08080" stroke-width="2"/>
     </svg>
   </div>
 
-  <!-- Estructura del ramo -->
+ 
   <div class="bouquet-container">
     <svg class="stems-svg" viewBox="0 0 400 600">
       <path class="stem stem-left" d="M200,580 Q160,400 90,260" />
@@ -463,7 +463,7 @@
       <path class="leaf leaf-3" d="M195,330 C150,300 135,260 130,240 C155,270 180,305 195,330 Z" />
     </svg>
 
-    <!-- Flor Izquierda -->
+   
     <div class="flower flower-left" onclick="openCard()">
       <svg class="lily-svg" viewBox="0 0 100 100">
         <defs>
@@ -489,7 +489,7 @@
       </svg>
     </div>
 
-    <!-- Flor Central -->
+    
     <div class="flower flower-center" onclick="openCard()">
       <svg class="lily-svg" viewBox="0 0 100 100">
         <path d="M50 50 C45 15 38 0 50 0 C62 0 55 15 50 50" fill="url(#petal-grad)" transform="rotate(0 50 50)"/>
@@ -526,29 +526,29 @@
     </div>
   </div>
 
-  <!-- Botón central -->
+  
   <div class="controls">
     <button class="btn" onclick="openCard()">💌 Abrir Carta</button>
   </div>
 
-  <!-- Carta con Foto y Dedicatoria -->
+
   <div class="modal-overlay" id="modalOverlay">
     <div class="letter-card">
       <button class="close-modal" onclick="closeCard()">×</button>
       
-      <h2 class="letter-title">Para mi Karen favorita 💛</h2>
+      <h2 class="letter-title">Para mi niña hemocha 🩵</h2>
 
       <div class="polaroid-frame">
         <img src="https://raw.githubusercontent.com/fernandojosuecastillo31-rgb/karen/main/karenyfer.jpeg" alt="Karen y Fernando" class="polaroid-img">
         <div class="polaroid-caption">Karen & Fernando ✨</div>
       </div>
 
-      <div class="letter-body">Estas azucenas amarillas florecen para recordarte lo especial que eres en mi vida. Gracias por cada momento juntos, por tus risas y por iluminar siempre mis días. Te amo con todo mi corazón 💛</div>
+      <div class="letter-body">Estas azucenas amarillas son para recordarte lo especial que eres en mi vida. Gracias por cada momento juntos, por tus risas y por iluminar siempre mis días. Te quiero demasiado 🩵</div>
     </div>
   </div>
 
   <script>
-    // Partículas de polen ambiental
+    /
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -602,7 +602,7 @@
     }
     animateParticles();
 
-    // Abrir y cerrar la carta
+   
     const modal = document.getElementById('modalOverlay');
 
     function openCard() {
@@ -613,7 +613,7 @@
       modal.classList.remove('active');
     }
 
-    // Efecto interactivo al tocar la pantalla
+   
     const emojis = ['💛', '✨', '🐷', '🌼', '💛', '🌸'];
 
     function spawnTouchEffect(x, y) {
