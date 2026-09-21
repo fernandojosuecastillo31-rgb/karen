@@ -98,12 +98,8 @@
     }
 
     @keyframes gentleFloat {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-      100% {
-        transform: translateY(-8px) rotate(2deg);
-      }
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-8px) rotate(2deg); }
     }
 
     .pig-ear-left {
@@ -121,7 +117,7 @@
       50% { transform: rotate(-8deg); }
     }
 
-    /* Contenedor central del ramo */
+    /* Ramo de flores */
     .bouquet-container {
       position: relative;
       width: 100%;
@@ -158,9 +154,7 @@
     .stem-left { stroke: #274b1a; animation-delay: 0.3s; }
     .stem-right { stroke: #336122; animation-delay: 0.5s; }
 
-    @keyframes growStem {
-      to { stroke-dashoffset: 0; }
-    }
+    @keyframes growStem { to { stroke-dashoffset: 0; } }
 
     .leaf {
       fill: #2f5a20;
@@ -197,33 +191,13 @@
       filter: drop-shadow(0 0 16px rgba(255, 223, 77, 0.8));
     }
 
-    .flower-center {
-      top: 18%;
-      left: calc(50% - 70px);
-      animation-delay: 1.8s;
-    }
-
-    .flower-left {
-      top: 32%;
-      left: calc(50% - 170px);
-      animation-delay: 2.1s;
-    }
-
-    .flower-right {
-      top: 30%;
-      left: calc(50% + 30px);
-      animation-delay: 2.4s;
-    }
+    .flower-center { top: 18%; left: calc(50% - 70px); animation-delay: 1.8s; }
+    .flower-left { top: 32%; left: calc(50% - 170px); animation-delay: 2.1s; }
+    .flower-right { top: 30%; left: calc(50% + 30px); animation-delay: 2.4s; }
 
     @keyframes bloom {
-      0% {
-        opacity: 0;
-        transform: scale(0) rotate(-20deg);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-      }
+      0% { opacity: 0; transform: scale(0) rotate(-20deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
     }
 
     .lily-svg {
@@ -233,7 +207,7 @@
       filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
     }
 
-    /* Botón central inferior */
+    /* Botón central */
     .controls {
       position: fixed;
       bottom: 30px;
@@ -269,7 +243,7 @@
       box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
     }
 
-    /* Ventana modal de la carta */
+    /* Modal carta */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -290,10 +264,7 @@
       animation: fadeIn 0.3s ease forwards;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     .letter-card {
       background: #fdfbf7;
@@ -339,7 +310,6 @@
       line-height: 1;
     }
 
-    /* Marco Polaroid para la foto */
     .polaroid-frame {
       background: #ffffff;
       padding: 10px 10px 18px 10px;
@@ -348,27 +318,26 @@
       border: 1px solid #eaeaea;
       transform: rotate(-1.5deg);
       transition: transform 0.3s ease;
-      max-width: 260px;
+      max-width: 270px;
       width: 100%;
     }
 
-    .polaroid-frame:hover {
-      transform: rotate(0deg) scale(1.02);
-    }
+    .polaroid-frame:hover { transform: rotate(0deg) scale(1.02); }
 
     .polaroid-img {
       width: 100%;
-      height: 240px;
+      height: 250px;
       object-fit: cover;
-      object-position: center;
+      object-position: center 20%;
       border-radius: 6px;
       display: block;
+      background: #eee;
     }
 
     .polaroid-caption {
       font-family: 'Caveat', cursive;
-      font-size: 1.3rem;
-      color: #666;
+      font-size: 1.35rem;
+      color: #555;
       text-align: center;
       margin-top: 8px;
     }
@@ -382,7 +351,6 @@
       white-space: pre-wrap;
     }
 
-    /* Efecto al tocar la pantalla */
     .touch-heart {
       position: fixed;
       pointer-events: none;
@@ -392,67 +360,42 @@
     }
 
     @keyframes floatUp {
-      0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
-      }
-      100% {
-        opacity: 0;
-        transform: translate(-50%, -120px) scale(1.4) rotate(15deg);
-      }
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(0.6) rotate(0deg); }
+      100% { opacity: 0; transform: translate(-50%, -120px) scale(1.4) rotate(15deg); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Frase en el fondo -->
   <div class="bg-message">¡Te quiero mil millones! 💛</div>
 
   <canvas id="particles"></canvas>
   <div class="glow-bg"></div>
 
-  <!-- Cerdito animado de fondo -->
+  <!-- Cerdito animado -->
   <div class="pig-bg">
     <svg viewBox="0 0 120 120" width="100%" height="100%">
-      <!-- Orejas -->
       <path class="pig-ear-left" d="M30,45 C20,25 35,15 45,30 Z" fill="#ffb6c1" stroke="#f08080" stroke-width="2"/>
       <path d="M32,40 C26,28 35,22 41,31 Z" fill="#ff8da1"/>
       <path class="pig-ear-right" d="M90,45 C100,25 85,15 75,30 Z" fill="#ffb6c1" stroke="#f08080" stroke-width="2"/>
       <path d="M88,40 C94,28 85,22 79,31 Z" fill="#ff8da1"/>
-
-      <!-- Cabeza / Cuerpo -->
       <circle cx="60" cy="65" r="42" fill="#ffccd5" stroke="#f08080" stroke-width="2.5"/>
-
-      <!-- Flor en la cabeza -->
-      <circle cx="78" cy="34" r="5" fill="#ffe066"/>
-      <circle cx="85" cy="36" r="5" fill="#ffe066"/>
-      <circle cx="82" cy="43" r="5" fill="#ffe066"/>
-      <circle cx="74" cy="42" r="5" fill="#ffe066"/>
-      <circle cx="72" cy="36" r="5" fill="#ffe066"/>
-      <circle cx="78" cy="38" r="3.5" fill="#f59f00"/>
-
-      <!-- Ojos -->
-      <ellipse cx="45" cy="60" rx="4.5" ry="5.5" fill="#2b2b2b"/>
-      <circle cx="43" cy="58" r="1.5" fill="#ffffff"/>
-      <ellipse cx="75" cy="60" rx="4.5" ry="5.5" fill="#2b2b2b"/>
-      <circle cx="73" cy="58" r="1.5" fill="#ffffff"/>
-
-      <!-- Mejillas -->
+      <circle cx="78" cy="34" r="5" fill="#ffe066"/><circle cx="85" cy="36" r="5" fill="#ffe066"/>
+      <circle cx="82" cy="43" r="5" fill="#ffe066"/><circle cx="74" cy="42" r="5" fill="#ffe066"/>
+      <circle cx="72" cy="36" r="5" fill="#ffe066"/><circle cx="78" cy="38" r="3.5" fill="#f59f00"/>
+      <ellipse cx="45" cy="60" rx="4.5" ry="5.5" fill="#2b2b2b"/><circle cx="43" cy="58" r="1.5" fill="#ffffff"/>
+      <ellipse cx="75" cy="60" rx="4.5" ry="5.5" fill="#2b2b2b"/><circle cx="73" cy="58" r="1.5" fill="#ffffff"/>
       <ellipse cx="38" cy="72" rx="6" ry="3.5" fill="#ff99aa" opacity="0.6"/>
       <ellipse cx="82" cy="72" rx="6" ry="3.5" fill="#ff99aa" opacity="0.6"/>
-
-      <!-- Trompita -->
       <ellipse cx="60" cy="76" rx="16" ry="11" fill="#ff99aa" stroke="#f08080" stroke-width="1.8"/>
       <ellipse cx="55" cy="76" rx="2.5" ry="4" fill="#d85a6a"/>
       <ellipse cx="65" cy="76" rx="2.5" ry="4" fill="#d85a6a"/>
-
-      <!-- Patitas -->
       <ellipse cx="44" cy="104" rx="9" ry="6" fill="#ffccd5" stroke="#f08080" stroke-width="2"/>
       <ellipse cx="76" cy="104" rx="9" ry="6" fill="#ffccd5" stroke="#f08080" stroke-width="2"/>
     </svg>
   </div>
 
-  <!-- Estructura del ramo -->
+  <!-- Ramo -->
   <div class="bouquet-container">
     <svg class="stems-svg" viewBox="0 0 400 600">
       <path class="stem stem-left" d="M200,580 Q160,400 90,260" />
@@ -483,10 +426,7 @@
         <circle cx="50" cy="50" r="5" fill="#f57f17"/>
         <line x1="50" y1="50" x2="42" y2="38" stroke="#8d6e63" stroke-width="1.5"/>
         <line x1="50" y1="50" x2="58" y2="38" stroke="#8d6e63" stroke-width="1.5"/>
-        <line x1="50" y1="50" x2="50" y2="34" stroke="#8d6e63" stroke-width="1.5"/>
-        <circle cx="42" cy="38" r="2.5" fill="#5d4037"/>
-        <circle cx="58" cy="38" r="2.5" fill="#5d4037"/>
-        <circle cx="50" cy="34" r="2.5" fill="#5d4037"/>
+        <circle cx="42" cy="38" r="2.5" fill="#5d4037"/><circle cx="58" cy="38" r="2.5" fill="#5d4037"/>
       </svg>
     </div>
 
@@ -502,10 +442,7 @@
         <circle cx="50" cy="50" r="6" fill="#f57f17"/>
         <line x1="50" y1="50" x2="40" y2="35" stroke="#795548" stroke-width="2"/>
         <line x1="50" y1="50" x2="60" y2="35" stroke="#795548" stroke-width="2"/>
-        <line x1="50" y1="50" x2="50" y2="30" stroke="#795548" stroke-width="2"/>
-        <ellipse cx="40" cy="35" rx="3.5" ry="2" fill="#4e342e"/>
-        <ellipse cx="60" cy="35" rx="3.5" ry="2" fill="#4e342e"/>
-        <ellipse cx="50" cy="30" rx="3.5" ry="2" fill="#4e342e"/>
+        <ellipse cx="40" cy="35" rx="3.5" ry="2" fill="#4e342e"/><ellipse cx="60" cy="35" rx="3.5" ry="2" fill="#4e342e"/>
       </svg>
     </div>
 
@@ -521,18 +458,16 @@
         <circle cx="50" cy="50" r="5" fill="#f57f17"/>
         <line x1="50" y1="50" x2="44" y2="40" stroke="#8d6e63" stroke-width="1.5"/>
         <line x1="50" y1="50" x2="56" y2="38" stroke="#8d6e63" stroke-width="1.5"/>
-        <circle cx="44" cy="40" r="2.5" fill="#5d4037"/>
-        <circle cx="56" cy="38" r="2.5" fill="#5d4037"/>
+        <circle cx="44" cy="40" r="2.5" fill="#5d4037"/><circle cx="56" cy="38" r="2.5" fill="#5d4037"/>
       </svg>
     </div>
   </div>
 
-  <!-- Botón central -->
   <div class="controls">
     <button class="btn" onclick="openCard()">💌 Abrir Carta</button>
   </div>
 
-  <!-- Carta con Foto y Dedicatoria -->
+  <!-- Modal con foto -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="letter-card">
       <button class="close-modal" onclick="closeCard()">×</button>
@@ -540,7 +475,7 @@
       <h2 class="letter-title">Para mi Karen favorita 💛</h2>
 
       <div class="polaroid-frame">
-        <img src="20260915_092421.jpg" alt="Karen y Fernando" class="polaroid-img">
+        <img id="karenImg" src="20260915_092421.jpg" alt="Karen y Fernando" class="polaroid-img">
         <div class="polaroid-caption">Karen & Fernando ✨</div>
       </div>
 
@@ -549,7 +484,25 @@
   </div>
 
   <script>
-    // Partículas de polen ambiental
+    // Sistema multi-intento para cargar la foto sin errores
+    const imgEl = document.getElementById('karenImg');
+    const rutasPosibles = [
+      '20260915_092421.jpg',
+      './20260915_092421.jpg',
+      '20260915_092421.JPG',
+      './20260915_092421.JPG',
+      'https://raw.githubusercontent.com/fernandojosuecastillo31-rgb/karen/main/20260915_092421.jpg'
+    ];
+    let intento = 0;
+
+    imgEl.onerror = function() {
+      intento++;
+      if (intento < rutasPosibles.length) {
+        this.src = rutasPosibles[intento];
+      }
+    };
+
+    // Partículas
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -562,9 +515,7 @@
     resizeCanvas();
 
     class Particle {
-      constructor() {
-        this.reset();
-      }
+      constructor() { this.reset(); }
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = canvas.height + Math.random() * 50;
@@ -589,34 +540,21 @@
       }
     }
 
-    for (let i = 0; i < 40; i++) {
-      particles.push(new Particle());
-    }
+    for (let i = 0; i < 40; i++) { particles.push(new Particle()); }
 
     function animateParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
+      particles.forEach(p => { p.update(); p.draw(); });
       requestAnimationFrame(animateParticles);
     }
     animateParticles();
 
-    // Abrir y cerrar la carta
     const modal = document.getElementById('modalOverlay');
+    function openCard() { modal.classList.add('active'); }
+    function closeCard() { modal.classList.remove('active'); }
 
-    function openCard() {
-      modal.classList.add('active');
-    }
-
-    function closeCard() {
-      modal.classList.remove('active');
-    }
-
-    // Efecto interactivo al tocar la pantalla
+    // Toque interactivo
     const emojis = ['💛', '✨', '🐷', '🌼', '💛', '🌸'];
-
     function spawnTouchEffect(x, y) {
       const el = document.createElement('div');
       el.className = 'touch-heart';
@@ -624,16 +562,10 @@
       el.style.left = `${x}px`;
       el.style.top = `${y}px`;
       document.body.appendChild(el);
-
-      setTimeout(() => {
-        el.remove();
-      }, 950);
+      setTimeout(() => el.remove(), 950);
     }
 
-    window.addEventListener('click', (e) => {
-      spawnTouchEffect(e.clientX, e.clientY);
-    });
-
+    window.addEventListener('click', (e) => spawnTouchEffect(e.clientX, e.clientY));
     window.addEventListener('touchstart', (e) => {
       for (let i = 0; i < e.touches.length; i++) {
         spawnTouchEffect(e.touches[i].clientX, e.touches[i].clientY);
