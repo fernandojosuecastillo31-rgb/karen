@@ -130,7 +130,7 @@
       filter: drop-shadow(0 0 16px rgba(255, 223, 77, 0.8));
     }
 
-    /* Ubicaciones coordinadas en las puntas de los tallos */
+    /* Ubicaciones de las azucenas */
     .flower-center {
       top: 18%;
       left: calc(50% - 70px);
@@ -160,7 +160,6 @@
       }
     }
 
-    /* Brillo de pétalos y estambres */
     .lily-svg {
       width: 100%;
       height: 100%;
@@ -168,36 +167,40 @@
       filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
     }
 
-    /* Barra de botones inferior */
+    /* Botón centrado en pantalla */
     .controls {
       position: fixed;
-      bottom: 25px;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      gap: 14px;
+      justify-content: center;
+      align-items: center;
       z-index: 10;
     }
 
     .btn {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 215, 0, 0.4);
+      border: 1px solid rgba(255, 215, 0, 0.5);
       color: #fff9d2;
-      padding: 12px 22px;
+      padding: 14px 28px;
       border-radius: 30px;
-      font-size: 0.95rem;
-      font-weight: 500;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     .btn:hover {
-      background: rgba(255, 215, 0, 0.25);
+      background: rgba(255, 215, 0, 0.3);
       border-color: #ffd700;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
     }
 
     /* Ventana modal de la carta */
@@ -232,7 +235,7 @@
       width: 100%;
       max-width: 440px;
       border-radius: 18px;
-      padding: 30px 25px;
+      padding: 35px 28px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.5);
       border: 2px solid #ffd700;
       display: flex;
@@ -249,7 +252,7 @@
 
     .letter-title {
       font-family: 'Caveat', cursive;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       color: #b8860b;
       text-align: center;
       line-height: 1;
@@ -257,69 +260,11 @@
 
     .letter-body {
       font-family: 'Caveat', cursive;
-      font-size: 1.55rem;
-      line-height: 1.4;
+      font-size: 1.6rem;
+      line-height: 1.45;
       color: #3d3d3d;
-      min-height: 110px;
+      text-align: center;
       white-space: pre-wrap;
-    }
-
-    .edit-area {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .edit-area.active {
-      display: flex;
-    }
-
-    .input-field, .textarea-field {
-      width: 100%;
-      border: 1px solid #d4af37;
-      border-radius: 8px;
-      padding: 10px 12px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9rem;
-      outline: none;
-      background: #fff;
-    }
-
-    .textarea-field {
-      height: 100px;
-      resize: vertical;
-    }
-
-    .card-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .btn-secondary {
-      background: #eee;
-      border: none;
-      color: #333;
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: #d4af37;
-      border: none;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      background: #b8860b;
     }
 
     .close-modal {
@@ -328,9 +273,10 @@
       right: 15px;
       background: none;
       border: none;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: #777;
       cursor: pointer;
+      line-height: 1;
     }
   </style>
 </head>
@@ -342,14 +288,10 @@
   <!-- Estructura del ramo -->
   <div class="bouquet-container">
     <svg class="stems-svg" viewBox="0 0 400 600">
-      <!-- Tallo izquierdo -->
       <path class="stem stem-left" d="M200,580 Q160,400 90,260" />
-      <!-- Tallo central -->
       <path class="stem stem-main" d="M200,580 Q210,380 200,160" />
-      <!-- Tallo derecho -->
       <path class="stem stem-right" d="M200,580 Q230,420 290,240" />
 
-      <!-- Hojas estilizadas de azucena -->
       <path class="leaf leaf-1" d="M175,440 C120,430 100,390 90,370 C120,385 155,420 175,440 Z" />
       <path class="leaf leaf-2" d="M220,410 C270,395 295,350 310,330 C280,360 240,395 220,410 Z" />
       <path class="leaf leaf-3" d="M195,330 C150,300 135,260 130,240 C155,270 180,305 195,330 Z" />
@@ -365,14 +307,12 @@
             <stop offset="100%" stop-color="#f57f17"/>
           </linearGradient>
         </defs>
-        <!-- 6 pétalos de azucena -->
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(-30 50 50)"/>
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(30 50 50)"/>
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(90 50 50)"/>
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(150 50 50)"/>
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(210 50 50)"/>
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(270 50 50)"/>
-        <!-- Pistilos y anteras -->
         <circle cx="50" cy="50" r="5" fill="#f57f17"/>
         <line x1="50" y1="50" x2="42" y2="38" stroke="#8d6e63" stroke-width="1.5"/>
         <line x1="50" y1="50" x2="58" y2="38" stroke="#8d6e63" stroke-width="1.5"/>
@@ -383,17 +323,15 @@
       </svg>
     </div>
 
-    <!-- Flor Central Principal -->
+    <!-- Flor Central -->
     <div class="flower flower-center" onclick="openCard()">
       <svg class="lily-svg" viewBox="0 0 100 100">
-        <!-- 6 pétalos de azucena -->
         <path d="M50 50 C45 15 38 0 50 0 C62 0 55 15 50 50" fill="url(#petal-grad)" transform="rotate(0 50 50)"/>
         <path d="M50 50 C45 15 38 0 50 0 C62 0 55 15 50 50" fill="url(#petal-grad)" transform="rotate(60 50 50)"/>
         <path d="M50 50 C45 15 38 0 50 0 C62 0 55 15 50 50" fill="url(#petal-grad)" transform="rotate(120 50 50)"/>
         <path d="M50 50 C45 15 38 0 50 0 C62 0 55 15 50 50" fill="url(#petal-grad)" transform="rotate(180 50 50)"/>
         <path d="M50 50 C45 15 38 0 50 0 C62 0 55 15 50 50" fill="url(#petal-grad)" transform="rotate(240 50 50)"/>
         <path d="M50 50 C45 15 38 0 50 0 C62 0 55 15 50 50" fill="url(#petal-grad)" transform="rotate(300 50 50)"/>
-        <!-- Pistilos y anteras -->
         <circle cx="50" cy="50" r="6" fill="#f57f17"/>
         <line x1="50" y1="50" x2="40" y2="35" stroke="#795548" stroke-width="2"/>
         <line x1="50" y1="50" x2="60" y2="35" stroke="#795548" stroke-width="2"/>
@@ -407,14 +345,12 @@
     <!-- Flor Derecha -->
     <div class="flower flower-right" onclick="openCard()">
       <svg class="lily-svg" viewBox="0 0 100 100">
-        <!-- 6 pétalos de azucena -->
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(20 50 50)"/>
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(80 50 50)"/>
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(140 50 50)"/>
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(200 50 50)"/>
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(260 50 50)"/>
         <path d="M50 50 C45 20 40 5 50 0 C60 5 55 20 50 50" fill="url(#petal-grad)" transform="rotate(320 50 50)"/>
-        <!-- Pistilos y anteras -->
         <circle cx="50" cy="50" r="5" fill="#f57f17"/>
         <line x1="50" y1="50" x2="44" y2="40" stroke="#8d6e63" stroke-width="1.5"/>
         <line x1="50" y1="50" x2="56" y2="38" stroke="#8d6e63" stroke-width="1.5"/>
@@ -424,39 +360,22 @@
     </div>
   </div>
 
-  <!-- Botones flotantes -->
+  <!-- Botón abrir carta centrado -->
   <div class="controls">
     <button class="btn" onclick="openCard()">💌 Abrir Carta</button>
-    <button class="btn" onclick="toggleEdit()">✏️ Personalizar</button>
   </div>
 
   <!-- Modal con la carta romántica -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="letter-card">
       <button class="close-modal" onclick="closeCard()">×</button>
-      
-      <div id="viewMode">
-        <h2 class="letter-title" id="cardRecipient">Para ti, mi amor</h2>
-        <div class="letter-body" id="cardText">Estas azucenas amarillas florecen para recordarte lo especial que eres en mi vida. Gracias por iluminar cada uno de mis días con tu sonrisa. 💛</div>
-      </div>
-
-      <div class="edit-area" id="editMode">
-        <label style="font-size: 0.85rem; font-weight: 600; color: #555;">Nombre o Apodo:</label>
-        <input type="text" id="inputRecipient" class="input-field" placeholder="Ej. Mi princesa, Valentina...">
-
-        <label style="font-size: 0.85rem; font-weight: 600; color: #555;">Tu Mensaje:</label>
-        <textarea id="inputText" class="textarea-field" placeholder="Escribe tu dedicatoria..."></textarea>
-      </div>
-
-      <div class="card-actions">
-        <button class="btn-secondary" id="editToggleBtn" onclick="toggleEdit()">Editar mensaje</button>
-        <button class="btn-primary" id="saveShareBtn" onclick="saveAndShare()">Copiar Link Personalizado</button>
-      </div>
+      <h2 class="letter-title">Para ti, mi amor</h2>
+      <div class="letter-body">Estas azucenas amarillas florecen para recordarte lo especial que eres en mi vida. Gracias por iluminar cada uno de mis días con tu sonrisa. 💛</div>
     </div>
   </div>
 
   <script>
-    // Partículas de polen flotante
+    // Animación de polen
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -510,29 +429,8 @@
     }
     animateParticles();
 
-    // Gestión del mensaje e interacción
+    // Abrir y cerrar la carta
     const modal = document.getElementById('modalOverlay');
-    const viewMode = document.getElementById('viewMode');
-    const editMode = document.getElementById('editMode');
-    const cardRecipient = document.getElementById('cardRecipient');
-    const cardText = document.getElementById('cardText');
-    const inputRecipient = document.getElementById('inputRecipient');
-    const inputText = document.getElementById('inputText');
-    const editToggleBtn = document.getElementById('editToggleBtn');
-    const saveShareBtn = document.getElementById('saveShareBtn');
-
-    // Cargar parámetros de la URL si existen
-    window.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const to = params.get('para');
-      const msg = params.get('m');
-
-      if (to) cardRecipient.innerText = decodeURIComponent(to);
-      if (msg) cardText.innerText = decodeURIComponent(msg);
-
-      inputRecipient.value = cardRecipient.innerText;
-      inputText.value = cardText.innerText;
-    });
 
     function openCard() {
       modal.classList.add('active');
@@ -540,40 +438,6 @@
 
     function closeCard() {
       modal.classList.remove('active');
-      if (editMode.classList.contains('active')) {
-        toggleEdit();
-      }
-    }
-
-    function toggleEdit() {
-      const isEditing = editMode.classList.toggle('active');
-      viewMode.style.display = isEditing ? 'none' : 'block';
-      editToggleBtn.innerText = isEditing ? 'Cancelar' : 'Editar mensaje';
-      saveShareBtn.innerText = isEditing ? 'Guardar Cambios' : 'Copiar Link Personalizado';
-      if (isEditing) modal.classList.add('active');
-    }
-
-    function saveAndShare() {
-      if (editMode.classList.contains('active')) {
-        // Guardar cambios
-        const newRecipient = inputRecipient.value.trim() || 'Para ti, mi amor';
-        const newMsg = inputText.value.trim() || cardText.innerText;
-
-        cardRecipient.innerText = newRecipient;
-        cardText.innerText = newMsg;
-        toggleEdit();
-      }
-
-      // Generar link único con la dedicatoria en la URL
-      const currentUrl = window.location.origin + window.location.pathname;
-      const shareUrl = `${currentUrl}?para=${encodeURIComponent(cardRecipient.innerText)}&m=${encodeURIComponent(cardText.innerText)}`;
-
-      navigator.clipboard.writeText(shareUrl).then(() => {
-        saveShareBtn.innerText = '¡Link Copiado! 💛';
-        setTimeout(() => {
-          saveShareBtn.innerText = 'Copiar Link Personalizado';
-        }, 2500);
-      });
     }
   </script>
 </body>
